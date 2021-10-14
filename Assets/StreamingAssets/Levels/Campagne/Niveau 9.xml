@@ -29,22 +29,22 @@
       <row value="1" />
     </line>
     <line>
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="2" />
       <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
     </line>
     <line>
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
     </line>
   </map>
   <dialogs dialog="Tu peux maintenant utiliser l'action faire un demi-tour." img="TurnBackIcon.png" />

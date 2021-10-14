@@ -32,29 +32,9 @@
       <row value="1" />
     </line>
     <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="0" />
-      <row value="1" />
-      <row value="0" />
-      <row value="1" />
-    </line>
-    <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="0" />
-      <row value="0" />
-      <row value="0" />
-      <row value="1" />
-    </line>
-    <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="0" />
       <row value="1" />
@@ -62,9 +42,9 @@
       <row value="1" />
     </line>
     <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="0" />
       <row value="0" />
@@ -72,9 +52,29 @@
       <row value="1" />
     </line>
     <line>
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
+      <row value="0" />
       <row value="1" />
+      <row value="0" />
       <row value="1" />
+    </line>
+    <line>
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+    <line>
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
@@ -82,11 +82,11 @@
       <row value="1" />
     </line>
     <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
+      <row value="-1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />

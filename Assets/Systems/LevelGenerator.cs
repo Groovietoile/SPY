@@ -39,6 +39,8 @@ public class LevelGenerator : FSystem {
 		for(int i = 0; i< map.Count; i++){
 			for(int j = 0; j < map[i].Count; j++){
 				switch (map[i][j]){
+					case -1: //Null
+						break;
 					case 0: // Path
 						createCell(i,j);
 						break;

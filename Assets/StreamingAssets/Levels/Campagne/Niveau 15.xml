@@ -37,11 +37,11 @@
       <row value="1" />
     </line>
     <line>
+      <row value="-1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
     </line>
   </map>
   <dialogs dialog="Attention !&#xA;Ce n'est pas exactement le même niveau." />

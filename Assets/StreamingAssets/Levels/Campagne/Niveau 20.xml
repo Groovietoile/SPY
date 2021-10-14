@@ -65,22 +65,22 @@
       <row value="1" />
     </line>
     <line>
-      <row value="1" />
-      <row value="1" />
-      <row value="2" />
+      <row value="-1" />
       <row value="1" />
       <row value="2" />
       <row value="1" />
+      <row value="2" />
       <row value="1" />
+      <row value="-1" />
     </line>
     <line>
+      <row value="-1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
       <row value="1" />
-      <row value="1" />
-      <row value="1" />
+      <row value="-1" />
     </line>
   </map>
   <dialogs dialog="Dans cette mission, vous avez deux agents que vous devez diriger vers la sortie. Malheureusement, nous ne pouvons pas nous permettre d'utiliser plusieurs communications, ils recevront donc les même ordres." />
