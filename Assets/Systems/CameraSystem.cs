@@ -19,9 +19,13 @@ public class CameraSystem : FSystem {
 	private Transform target; // if defined camera follow this target
 	private float smoothSpeed = 0.125f;
 	private Vector3 offset = new Vector3(6,15,0);
+	//private GameObject bigStars;
+	//private GameObject smallStars;
 
 	public CameraSystem()
 	{
+		//bigStars = GameObject.Find("BigStars");
+		//smallStars = GameObject.Find("SmallStars");
 		if (Application.isPlaying)
 		{
 			// Backup initial camera data
@@ -61,12 +65,16 @@ public class CameraSystem : FSystem {
 			if (Input.GetAxis("Vertical") != 0)
 			{
 				camera.transform.position += new Vector3(camera.transform.forward.x + camera.transform.up.x, 0, camera.transform.forward.z + camera.transform.up.z) * Input.GetAxis("Vertical") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
+				//bigStars.transform.position += new Vector3(camera.transform.forward.x + camera.transform.up.x, 0, camera.transform.forward.z + camera.transform.up.z) * Input.GetAxis("Vertical") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
+				//smallStars.transform.position += new Vector3(camera.transform.forward.x + camera.transform.up.x, 0, camera.transform.forward.z + camera.transform.up.z) * Input.GetAxis("Vertical") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
 				target = null;
 			}
 			// move camera left/right de pending on Horizontal axis
 			if (Input.GetAxis("Horizontal") != 0)
 			{
 				camera.transform.position += new Vector3(camera.transform.right.x, 0, camera.transform.right.z) * Input.GetAxis("Horizontal") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
+				//bigStars.transform.position += new Vector3(camera.transform.right.x, 0, camera.transform.right.z) * Input.GetAxis("Horizontal") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
+				//smallStars.transform.position += new Vector3(camera.transform.right.x, 0, camera.transform.right.z) * Input.GetAxis("Horizontal") * camera.GetComponent<CameraComponent>().cameraSpeed * Time.deltaTime;
 				target = null;
 			}
 

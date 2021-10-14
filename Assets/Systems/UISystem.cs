@@ -227,7 +227,8 @@ public class UISystem : FSystem {
             case 1:
                 endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().text = "Vous avez été repéré !";
                 GameObjectManager.setGameObjectState(endPanel.transform.Find("NextLevel").gameObject, false);
-                endPanel.GetComponent<AudioSource>().clip = Resources.Load("Sound/LoseSound") as AudioClip;
+				GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, true);
+				endPanel.GetComponent<AudioSource>().clip = Resources.Load("Sound/LoseSound") as AudioClip;
                 endPanel.GetComponent<AudioSource>().loop = true;
                 endPanel.GetComponent<AudioSource>().Play();
                 break;
@@ -241,11 +242,12 @@ public class UISystem : FSystem {
                 endPanel.GetComponent<AudioSource>().loop = false;
                 endPanel.GetComponent<AudioSource>().Play();
 				GameObjectManager.setGameObjectState(endPanel.transform.Find("NextLevel").gameObject, true);
-                //End
-                if (gameData.levelToLoad.Item2 >= gameData.levelList[gameData.levelToLoad.Item1].Count - 1)
+				GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, false);
+				//End
+				if (gameData.levelToLoad.Item2 >= gameData.levelList[gameData.levelToLoad.Item1].Count - 1)
                 {
                     GameObjectManager.setGameObjectState(endPanel.transform.Find("NextLevel").gameObject, false);
-					GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, false);
+					//GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, false);
                 }
                 break;
         }
