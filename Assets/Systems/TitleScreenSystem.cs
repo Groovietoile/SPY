@@ -120,21 +120,23 @@ public class TitleScreenSystem : FSystem {
 
 					string directoryName = levelDirectory.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
 					//locked levels
+					/*
 					if(i > PlayerPrefs.GetInt(directoryName, 0)) //by default first level of directory is the only unlocked level of directory
 						levelButtons[directory][i].transform.Find("Button").GetComponent<Button>().interactable = false;
 					//unlocked levels
 					else{
-						levelButtons[directory][i].transform.Find("Button").GetComponent<Button>().interactable = true;
-						//scores
-						int scoredStars = PlayerPrefs.GetInt(directoryName + Path.DirectorySeparatorChar + i + gameData.scoreKey, 0); //0 star by default
-						Transform scoreCanvas = levelButtons[directory][i].transform.Find("ScoreCanvas");
-						for (int nbStar = 0 ; nbStar < 4 ; nbStar++){
-							if(nbStar == scoredStars)
-								GameObjectManager.setGameObjectState(scoreCanvas.GetChild(nbStar).gameObject, true);
-							else
-								GameObjectManager.setGameObjectState(scoreCanvas.GetChild(nbStar).gameObject, false);
-						}
+					*/
+					levelButtons[directory][i].transform.Find("Button").GetComponent<Button>().interactable = true;
+					//scores
+					int scoredStars = PlayerPrefs.GetInt(directoryName + Path.DirectorySeparatorChar + i + gameData.scoreKey, 0); //0 star by default
+					Transform scoreCanvas = levelButtons[directory][i].transform.Find("ScoreCanvas");
+					for (int nbStar = 0 ; nbStar < 4 ; nbStar++){
+						if(nbStar == scoredStars)
+							GameObjectManager.setGameObjectState(scoreCanvas.GetChild(nbStar).gameObject, true);
+						else
+							GameObjectManager.setGameObjectState(scoreCanvas.GetChild(nbStar).gameObject, false);
 					}
+					//}
 				}
 			}
 			//hide other levels

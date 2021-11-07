@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 8356383797769971517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 8217010867678636530}
   m_RootOrder: 2
@@ -96,8 +96,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2e2c868266fb9da4287b509a41a726cb,
-        type: 3}
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1855029925318943325, guid: c02a966b75c9e9e43b2d087d1bcd3bde,
         type: 3}
       propertyPath: actionType

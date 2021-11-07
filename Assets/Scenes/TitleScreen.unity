@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9803600998c48b140b2f7038d0fc2eb1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641263, b: 0.5748162, a: 1}
+  m_IndirectSpecularColor: {r: 0.096991785, g: 0.18686467, b: 0.27646858, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -261,6 +261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -550,6 +555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -565,6 +575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -763,6 +778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -904,6 +924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -1207,8 +1232,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1412,8 +1437,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1547,6 +1572,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -1562,6 +1592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -1927,6 +1962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -2069,6 +2109,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -2139,6 +2184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -2353,6 +2403,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -2550,6 +2605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -2691,6 +2751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -2885,6 +2950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -3545,6 +3615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -4244,6 +4319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -4457,6 +4537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -4569,15 +4654,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20392159, g: 0.62352943, b: 0.6666667, a: 0.5058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300032, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4808,6 +4893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -5005,6 +5095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -5020,6 +5115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -5431,6 +5531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -5550,6 +5655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -5677,6 +5787,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -5747,6 +5862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -5954,6 +6074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 2214813453397413261, guid: c597200862495be48a0fcaf45e220594,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7061177993175632211, guid: c597200862495be48a0fcaf45e220594, type: 3}
     - {fileID: 8509729885196333849, guid: c597200862495be48a0fcaf45e220594, type: 3}
@@ -6097,6 +6222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -6423,15 +6553,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20392159, g: 0.62352943, b: 0.6666667, a: 0.5058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300032, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6459,6 +6589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -6530,6 +6665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -6728,6 +6868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cell (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
     - {fileID: 1924019917, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -6743,6 +6888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
@@ -7083,14 +7233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7174,6 +7324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -7731,6 +7886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -7932,6 +8092,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}
       propertyPath: m_RootOrder
@@ -8057,6 +8222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cell (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157685522785862460, guid: d8b86bf11d6316f439d36b197173508e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1924019916, guid: d8b86bf11d6316f439d36b197173508e, type: 3}
@@ -8678,6 +8848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592150674149379876, guid: d95b7150b03a41b45be0c429720941da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592150674149379877, guid: d95b7150b03a41b45be0c429720941da,
         type: 3}

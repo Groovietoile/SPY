@@ -1770,15 +1770,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20392159, g: 0.62352943, b: 0.6666667, a: 0.5058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300032, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2696,12 +2696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ebd3f1e40a10e4cb617a689664d548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAction: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
+  playerAction: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
   playerBackground: {r: 1, g: 1, b: 1, a: 0.39215687}
-  droneAction: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 1}
+  droneAction: {r: 0.77254903, g: 0, b: 0.023454024, a: 0.78431374}
   droneBackground: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 0.39215687}
   forBaseColor: {r: 1, g: 1, b: 1, a: 1}
-  currentActionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  currentActionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.78431374}
 --- !u!114 &361349235
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2847,8 +2847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &391846932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,8 +4614,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5367,8 +5367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &705214591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,8 +6767,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8417,8 +8417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1198960391
 GameObject:
   m_ObjectHideFlags: 0
@@ -8686,8 +8686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1273315146
 GameObject:
   m_ObjectHideFlags: 0
@@ -9703,8 +9703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1482890829
 GameObject:
   m_ObjectHideFlags: 0
@@ -10331,8 +10331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1554861017
 GameObject:
   m_ObjectHideFlags: 0
@@ -10466,8 +10466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1641813390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11920,8 +11920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8271fbef7525748a512c171b100bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.4862745, g: 0.5568628, b: 1, a: 1}
-  highlightedColor: {r: 0.5934051, g: 0.647977, b: 0.990566, a: 1}
+  baseColor: {r: 0, g: 0.6117647, b: 0.77254903, a: 0.78431374}
+  highlightedColor: {r: 0, g: 0.7918782, b: 1, a: 0.78431374}
 --- !u!1 &1810032480
 GameObject:
   m_ObjectHideFlags: 0
@@ -12560,7 +12560,7 @@ RectTransform:
   m_GameObject: {fileID: 1923557564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 670075270}
   m_RootOrder: 3
@@ -13624,15 +13624,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20392159, g: 0.62352943, b: 0.6666667, a: 0.5058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300032, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
