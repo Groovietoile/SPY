@@ -6540,6 +6540,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1645587989}
+        m_TargetAssemblyTypeName: SendStatements_wrapper, Assembly-CSharp
+        m_MethodName: testSendStatement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1589537340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6965,6 +6977,7 @@ GameObject:
   - component: {fileID: 1645587987}
   - component: {fileID: 1645587986}
   - component: {fileID: 1645587985}
+  - component: {fileID: 1645587989}
   m_Layer: 0
   m_Name: Main_Loop
   m_TagString: Untagged
@@ -7014,6 +7027,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: TitleScreenSystem
     _pause: 0
+  - _typeAssemblyQualifiedName: SendStatements, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: SendStatements
+    _pause: 0
   _lateUpdateSystemDescriptions: []
   _forceUpdateInspector: 0
   _loadingState: 0
@@ -7042,6 +7059,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645587989
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645587984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67fa7bdc0d6da143be9ee778aba9fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649896675
 GameObject:
   m_ObjectHideFlags: 0
