@@ -5,12 +5,14 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-
+using TMPro;
 public class SendStatements : FSystem {
 
     private Family f_actionForLRS = FamilyManager.getFamily(new AllOfComponents(typeof(ActionPerformedForLRS)));
 
+    private Family f_levelButtonsLRS = FamilyManager.getFamily(new AllOfComponents(typeof(LRS_levelButton)));
     public static SendStatements instance;
+
 
     public SendStatements()
     {
@@ -19,6 +21,8 @@ public class SendStatements : FSystem {
             initGBLXAPI();
         }
         instance = this;
+
+        f_levelButtonsLRS.addEntryCallback(startLevelSendStatement);
     }
 
     public void initGBLXAPI()
@@ -87,5 +91,17 @@ public class SendStatements : FSystem {
             objectType = "menu",
             objectName = "myButton"
         });
+    }
+
+    public void startLevelSendStatement(GameObject go){
+        Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+        Debug.Log("level click : " + GBL_Interface.playerName + " asks to send statement...");
+        GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
+        {
+            verb = "read",
+            objectType = "level",
+            objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+
+        });       
     }
 }

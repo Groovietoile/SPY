@@ -58,6 +58,7 @@ public class TitleScreenSystem : FSystem {
 				for (int i = 0; i < gameData.levelList[key].Count; i++)
 				{
 					GameObject button = Object.Instantiate<GameObject>(Resources.Load("Prefabs/LevelButton") as GameObject, cList.transform);
+					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => GameObjectManager.addComponent<LRS_levelButton>(button.transform.Find("Button").gameObject));  
 					button.transform.Find("Button").GetChild(0).GetComponent<TextMeshProUGUI>().text = Path.GetFileNameWithoutExtension(gameData.levelList[key][i]);
 					int indice = i;
 					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(delegate { launchLevel(key, indice); });
