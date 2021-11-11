@@ -1061,10 +1061,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 10
     m_Bottom: 30
-  m_ChildAlignment: 4
+  m_ChildAlignment: 1
   m_Spacing: 2
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -1694,7 +1694,7 @@ RectTransform:
   m_Children:
   - {fileID: 901675046}
   m_Father: {fileID: 787503353}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4335,7 +4335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -15}
+  m_AnchoredPosition: {x: 40.625, y: -15}
   m_SizeDelta: {x: 18.75, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624363073
@@ -6132,7 +6132,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1339828889}
   - {fileID: 2087330843}
   - {fileID: 272413887}
   m_Father: {fileID: 1410401871}
@@ -8788,6 +8787,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TooltipUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6605428313136555806, guid: 44a902a8db4c35b4481db0d54b1edb95,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6605428313136555807, guid: 44a902a8db4c35b4481db0d54b1edb95,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9408,14 +9412,14 @@ RectTransform:
   - {fileID: 1504297950}
   - {fileID: 30024884}
   - {fileID: 1684333870}
-  m_Father: {fileID: 787503353}
-  m_RootOrder: 0
+  m_Father: {fileID: 1410401871}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1339828890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9578,6 +9582,7 @@ RectTransform:
   - {fileID: 1139441806}
   - {fileID: 617479265}
   - {fileID: 278433492}
+  - {fileID: 1339828889}
   - {fileID: 1281100067}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -13565,7 +13570,7 @@ RectTransform:
   m_Children:
   - {fileID: 638455899}
   m_Father: {fileID: 787503353}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

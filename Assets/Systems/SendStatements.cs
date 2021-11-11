@@ -98,7 +98,7 @@ public class SendStatements : FSystem {
         Debug.Log("level click : " + GBL_Interface.playerName + " asks to send statement...");
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
         {
-            verb = "read",
+            verb = "started",
             objectType = "level",
             objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
 
