@@ -551,6 +551,15 @@ public class UISystem : FSystem {
 				}
 			}
 		}
+		foreach(WhileAction whileAct in copyGO.GetComponentsInChildren<WhileAction>()){
+			foreach(BaseElement act in whileAct.GetComponentsInChildren<BaseElement>()){
+				if(!act.Equals(whileAct)){
+					whileAct.firstChild = act.gameObject;
+					break;
+				}
+			}
+		}
+
 		foreach(IfAction IfAct in copyGO.GetComponentsInChildren<IfAction>()){
 			IfAct.ifEntityType = IfAct.transform.GetChild(0).Find("DropdownEntityType").GetComponent<TMP_Dropdown>().value;
 			IfAct.ifDirection = IfAct.transform.GetChild(0).Find("DropdownDirection").GetComponent<TMP_Dropdown>().value;

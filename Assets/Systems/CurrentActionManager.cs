@@ -20,6 +20,8 @@ public class CurrentActionManager : FSystem
 	private Family coinGO = FamilyManager.getFamily(new AllOfComponents(typeof(CapsuleCollider), typeof(Position), typeof(ParticleSystem)), new AnyOfTags("Coin"));
 	private Family activableConsoleGO = FamilyManager.getFamily(new AllOfComponents(typeof(Activable),typeof(Position),typeof(AudioSource)));
 	private Family scriptIsRunning = FamilyManager.getFamily(new AllOfComponents(typeof(PlayerIsMoving)));
+	private Family exitGO = FamilyManager.getFamily(new AllOfComponents(typeof(Position), typeof(AudioSource)), new AnyOfTags("Exit"));
+
 
 	public CurrentActionManager()
 	{
@@ -128,8 +130,29 @@ public class CurrentActionManager : FSystem
 			else if (action.GetComponent<ForeverAction>())
 				// always return firstchild of this ForeverAction
 				return getFirstActionOf(action.GetComponent<ForeverAction>().firstChild, agent);
+
+			// check if action is a WhileAction
+			else if (action.GetComponent<WhileAction>()) {
+				// check if this WhileAction include a child and if condition is evaluated to true
+				if (action.GetComponent<WhileAction>().firstChild != null && isNotEnd(action.GetComponent<WhileAction>(), agent))
+					// get first action of its first child (could be if, for...)
+					return getFirstActionOf(action.GetComponent<WhileAction>().firstChild, agent);
+				else
+					// this if doesn't contain action or its condition is false => get first action of next action (could be if, for...)
+					return getFirstActionOf(action.GetComponent<WhileAction>().next, agent);
+			}
 		}
 		return null;
+	}
+
+	public bool isNotEnd(WhileAction whileAction, GameObject agent) {
+		foreach (GameObject exit in exitGO) {
+			// check if positions are equals
+			if (agent.GetComponent<Position>().x == exit.GetComponent<Position>().x && agent.GetComponent<Position>().z == exit.GetComponent<Position>().z) {
+				return false;
+			}
+		}
+		return true; //true when agent is not on end
 	}
 
 	public bool ifValid(IfAction ifAction, GameObject scripted)
@@ -275,34 +298,32 @@ public class CurrentActionManager : FSystem
 
 	public GameObject getNextAction(GameObject currentAction, GameObject agent){
 		BasicAction current_ba = currentAction.GetComponent<BasicAction>();
-		if (current_ba != null)
-		{
+		if (current_ba != null) {
 			// if next is not defined or is a BasicAction we return it
-			if(current_ba.next == null || current_ba.next.GetComponent<BasicAction>())
+			if (current_ba.next == null || current_ba.next.GetComponent<BasicAction>())
 				return current_ba.next;
 			else
 				return getNextAction(current_ba.next, agent);
 		}
 		// currentAction is not a BasicAction
 		// check if it is a ForAction
-		else if(currentAction.GetComponent<ForAction>()){
+		else if (currentAction.GetComponent<ForAction>()) {
 			ForAction forAct = currentAction.GetComponent<ForAction>();
 			// ForAction reach the number of iterations
-			if(forAct.currentFor >= forAct.nbFor){
+			if (forAct.currentFor >= forAct.nbFor) {
 				// reset nb iteration to 0
 				forAct.currentFor = 0;
 				forAct.transform.GetChild(0).GetChild(1).GetComponent<TMP_InputField>().text = (forAct.currentFor).ToString() + " / " + forAct.nbFor.ToString();
 				// return next action
-				if(forAct.next == null || forAct.next.GetComponent<BasicAction>())
+				if (forAct.next == null || forAct.next.GetComponent<BasicAction>())
 					return forAct.next;
 				else
-					return getNextAction(forAct.next , agent);
+					return getNextAction(forAct.next, agent);
 			}
 			// iteration are available
-			else{
+			else {
 				// in case ForAction has no child
-				if (forAct.firstChild == null)
-				{
+				if (forAct.firstChild == null) {
 					// reset nb iteration to 0
 					forAct.currentFor = 0;
 					forAct.transform.GetChild(0).GetChild(1).GetComponent<TMP_InputField>().text = (forAct.currentFor).ToString() + " / " + forAct.nbFor.ToString();
@@ -327,36 +348,57 @@ public class CurrentActionManager : FSystem
 			}
 		}
 		// check if it is a IfAction
-		else if(currentAction.GetComponent<IfAction>()){
+		else if (currentAction.GetComponent<IfAction>()) {
 			// check if IfAction has a first child and condition is true
 			IfAction ifAction = currentAction.GetComponent<IfAction>();
-			if (ifAction.firstChild != null && ifValid(ifAction, agent)){ 
+			if (ifAction.firstChild != null && ifValid(ifAction, agent)) {
 				// return first action
-				if(ifAction.firstChild.GetComponent<BasicAction>())
+				if (ifAction.firstChild.GetComponent<BasicAction>())
 					return ifAction.firstChild;
 				else
-					return getNextAction(ifAction.firstChild, agent);				
+					return getNextAction(ifAction.firstChild, agent);
 			}
-			else{
+			else {
 				// return next action
-				if(ifAction.next == null || ifAction.next.GetComponent<BasicAction>()){
+				if (ifAction.next == null || ifAction.next.GetComponent<BasicAction>()) {
 					return ifAction.next;
 				}
-				else{
-					return getNextAction(ifAction.next , agent);
-				}				
+				else {
+					return getNextAction(ifAction.next, agent);
+				}
 			}
 		}
 		// check if it is a ForeverAction
-		else if(currentAction.GetComponent<ForeverAction>()){
+		else if (currentAction.GetComponent<ForeverAction>()) {
 			ForeverAction foreverAction = currentAction.GetComponent<ForeverAction>();
 			if (foreverAction.firstChild == null || foreverAction.firstChild.GetComponent<BasicAction>())
 				return foreverAction.firstChild;
 			else
 				return getNextAction(foreverAction.firstChild, agent);
 		}
+		// check if it is a WhileAction
+		else if (currentAction.GetComponent<WhileAction>()) {
+			// check if WhileAction has a first child and condition is true
+			WhileAction whileAction = currentAction.GetComponent<WhileAction>();
+			if (whileAction.firstChild != null && isNotEnd(whileAction, agent)) {
+				// return first action
+				if (whileAction.firstChild.GetComponent<BasicAction>())
+					return whileAction.firstChild;
+				else
+					return getNextAction(whileAction.firstChild, agent);
+			}
+			else {
+				// return next action
+				if (whileAction.next == null || whileAction.next.GetComponent<BasicAction>()) {
+					return whileAction.next;
+				}
+				else {
+					return getNextAction(whileAction.next, agent);
+				}
+			}
 
-		return null;
+		}
+			return null;
 	}
 
 	private IEnumerator delayAddCurrentAction(GameObject nextAction, GameObject agent)

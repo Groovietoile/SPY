@@ -22,7 +22,7 @@ public class SendStatements : FSystem {
         }
         instance = this;
 
-        f_levelButtonsLRS.addEntryCallback(startLevelSendStatement);
+        f_levelButtonsLRS.addEntryCallback(delegate { startLevelSendStatement(); });
     }
 
     public void initGBLXAPI()
@@ -93,14 +93,15 @@ public class SendStatements : FSystem {
         });
     }
 
-    public void startLevelSendStatement(GameObject go){
-        Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    public void startLevelSendStatement(){
+        //Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
         Debug.Log("level click : " + GBL_Interface.playerName + " asks to send statement...");
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
         {
-            verb = "started",
-            objectType = "level",
-            objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+            verb = "interacted",
+            objectType = "menu",
+            objectName = "myLevel"
+            //objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
 
         });       
     }

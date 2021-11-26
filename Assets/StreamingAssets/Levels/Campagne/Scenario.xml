@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <scenario>
-    <level name = "Niveau 1.xml" />
-    <level name = "Niveau 2.xml" />
+    <level name = "Niveau Test.xml" />
+	<level name = "Niveau Test 2.xml" />
+	<level name = "Niveau 1.xml" />
+	<level name = "Niveau 2.xml" />
     <level name = "Niveau 3.xml" />
     <level name = "Niveau 4.xml" />
     <level name = "Niveau 5.xml" />

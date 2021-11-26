@@ -37,6 +37,8 @@ public class BlocLimitationManager : FSystem {
 			return "If";
 		else if (action is ForAction)
 			return "For";
+		else if (action is WhileAction)
+			return "While";
 		else
 			return null;
 	}
