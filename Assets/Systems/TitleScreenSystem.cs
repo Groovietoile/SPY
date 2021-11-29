@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using FYFY;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.IO;
@@ -151,6 +152,11 @@ public class TitleScreenSystem : FSystem {
 
 	public void launchLevel(string levelDirectory, int level){
 		gameData.levelToLoad = (levelDirectory,level);
+		MainLoop.instance.StartCoroutine(loadMainScene());
+	}
+
+	private IEnumerator loadMainScene() {
+		yield return null;
 		GameObjectManager.loadScene("MainScene");
 	}
 
