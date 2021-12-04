@@ -39,6 +39,9 @@ public class UISystem : FSystem {
 	private GameObject endPanel;
 	private GameObject executionCanvas;
 
+	private string originalText;
+	TextMeshProUGUI uiText;
+
 	public UISystem()
 	{
 		if (Application.isPlaying)
@@ -344,7 +347,10 @@ public class UISystem : FSystem {
 	public void showDialogPanel(){
 		GameObjectManager.setGameObjectState(dialogPanel.transform.parent.gameObject, true);
 		nDialog = 0;
-		dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[0].Item1;
+
+		//dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[0].Item1;
+		MainLoop.instance.StartCoroutine(ShowLetterByLetter(dialogPanel.transform.Find("Text"), gameData.dialogMessage[0].Item1));
+
 		GameObject imageGO = dialogPanel.transform.Find("Image").gameObject;
 		if(gameData.dialogMessage[0].Item2 != null){
 			GameObjectManager.setGameObjectState(imageGO,true);
@@ -361,6 +367,20 @@ public class UISystem : FSystem {
 		else{
 			setActiveOKButton(true);
 			setActiveNextButton(false);
+		}
+	}
+
+	IEnumerator<UnityEngine.WaitForSeconds> ShowLetterByLetter(Transform go, string text)
+	{
+		uiText = go.GetComponent<TextMeshProUGUI>();
+
+		originalText = text;
+
+		uiText.text = "";
+		for (int i = 0; i < originalText.Length; i++)
+		{
+			uiText.text = originalText.Substring(0, i);
+			yield return new WaitForSeconds(go.GetComponent<Write>().delai);
 		}
 	}
 

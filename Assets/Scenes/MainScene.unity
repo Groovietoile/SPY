@@ -2636,13 +2636,13 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: CurrentActionManager
     _pause: 0
-  - _typeAssemblyQualifiedName: SaveManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: SaveManager
-    _pause: 0
   - _typeAssemblyQualifiedName: SendStatements, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: SendStatements
+    _pause: 0
+  - _typeAssemblyQualifiedName: SaveManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: SaveManager
     _pause: 0
   _lateUpdateSystemDescriptions:
   - _typeAssemblyQualifiedName: HighLightSystem, Assembly-CSharp, Version=0.0.0.0,
@@ -5877,6 +5877,7 @@ GameObject:
   - component: {fileID: 736250629}
   - component: {fileID: 736250628}
   - component: {fileID: 736250630}
+  - component: {fileID: 736250631}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6020,6 +6021,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &736250631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736250626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b4baa24cb99ee4da40332377bf8797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delai: 0.05
 --- !u!1 &758631148
 GameObject:
   m_ObjectHideFlags: 0
