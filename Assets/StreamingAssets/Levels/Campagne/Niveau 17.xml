@@ -102,6 +102,7 @@
     <limit actionType="TurnBack" limit="-1" />
     <limit actionType="If" limit="0" />
     <limit actionType="For" limit="-1" />
+    <limit actionType="While" limit="0" />
   </actionBlocLimit>
   <coin posX="1" posZ="6" />
   <player posX="1" posZ="1" direction="0" />

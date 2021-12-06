@@ -56,6 +56,7 @@
     <limit actionType="TurnBack" limit="-1" />
     <limit actionType="If" limit="1" />
     <limit actionType="For" limit="1" />
+	<limit actionType="While" limit="0" />
   </actionBlocLimit>
   <activable posX="3" posZ="1" direction="1">
     <slot slot="0" />

@@ -54,6 +54,7 @@
     <limit actionType="TurnBack" limit="-1" />
     <limit actionType="If" limit="0" />
     <limit actionType="For" limit="-1" />
+	<limit actionType="While" limit="0" />
   </actionBlocLimit>
   <player posX="4" posZ="2" direction="3" />
   <enemy posX="3" posZ="1" direction="0" range="1" selfRange="True" typeRange="0">

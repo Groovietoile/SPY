@@ -38,9 +38,11 @@ public class UISystem : FSystem {
 	private GameObject lastEditedScript;
 	private GameObject endPanel;
 	private GameObject executionCanvas;
-
+	
 	private string originalText;
 	TextMeshProUGUI uiText;
+	private bool originalTextDisplayed;
+	private float delay;
 
 	public UISystem()
 	{
@@ -228,7 +230,8 @@ public class UISystem : FSystem {
         switch (endPanel.GetComponent<NewEnd>().endType)
         {
             case 1:
-                endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().text = "Vous avez été repéré !";
+				MainLoop.instance.StartCoroutine(ShowLetterByLetter(endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().transform, "Vous avez été repéré !"));
+				//endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().text = "Vous avez été repéré !";
                 GameObjectManager.setGameObjectState(endPanel.transform.Find("NextLevel").gameObject, false);
 				GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, true);
 				endPanel.GetComponent<AudioSource>().clip = Resources.Load("Sound/LoseSound") as AudioClip;
@@ -238,7 +241,8 @@ public class UISystem : FSystem {
             case 2:
 				int score = (10000 / (gameData.totalActionBloc + 1) + 5000 / (gameData.totalStep + 1) + 6000 / (gameData.totalExecute + 1) + 5000 * gameData.totalCoin);
                 Transform verticalCanvas = endPanel.transform.Find("VerticalCanvas");
-				verticalCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Bravo vous avez gagné !\nScore: " + score;
+				MainLoop.instance.StartCoroutine(ShowLetterByLetter(endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().transform, "Bravo vous avez gagné !\nScore: " + score));
+				//verticalCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Bravo vous avez gagné !\nScore: " + score;
                 setScoreStars(score, verticalCanvas.Find("ScoreCanvas"));
 
 				endPanel.GetComponent<AudioSource>().clip = Resources.Load("Sound/VictorySound") as AudioClip;
@@ -368,6 +372,7 @@ public class UISystem : FSystem {
 			setActiveOKButton(true);
 			setActiveNextButton(false);
 		}
+		delay = dialogPanel.transform.Find("Text").GetComponent<Write>().delai;
 	}
 
 	IEnumerator<UnityEngine.WaitForSeconds> ShowLetterByLetter(Transform go, string text)
@@ -377,33 +382,48 @@ public class UISystem : FSystem {
 		originalText = text;
 
 		uiText.text = "";
-		for (int i = 0; i < originalText.Length; i++)
+		for (int i = 0; i < originalText.Length+1; i++)
 		{
 			uiText.text = originalText.Substring(0, i);
-			yield return new WaitForSeconds(go.GetComponent<Write>().delai);
+			yield return new WaitForSeconds(go.GetComponent<Write>().delai);			
 		}
 	}
 
 	// See NextButton in editor
 	public void nextDialog(){
-		nDialog++;
-		dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[nDialog].Item1;
-		GameObject imageGO = dialogPanel.transform.Find("Image").gameObject;
-		if(gameData.dialogMessage[nDialog].Item2 != null){
-			GameObjectManager.setGameObjectState(imageGO,true);
-			imageGO.GetComponent<Image>().sprite = getImageAsSprite(Application.streamingAssetsPath+Path.DirectorySeparatorChar+"Levels"+
-			Path.DirectorySeparatorChar+gameData.levelToLoad.Item1+Path.DirectorySeparatorChar+"Images"+Path.DirectorySeparatorChar+gameData.dialogMessage[nDialog].Item2);		}
-		else
-			GameObjectManager.setGameObjectState(imageGO,false);
+		if (!uiText.text.Equals(originalText) && !originalTextDisplayed) {
+			Debug.Log("if");
+			originalTextDisplayed = true;
+			delay = dialogPanel.transform.Find("Text").GetComponent<Write>().delai;
+			dialogPanel.transform.Find("Text").GetComponent<Write>().delai = 0;
+			//dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[nDialog].Item1;
+		}
+		else {
+			Debug.Log("else");
+			dialogPanel.transform.Find("Text").GetComponent<Write>().delai = delay;
+			nDialog++;
+			//dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[nDialog].Item1;
+			MainLoop.instance.StartCoroutine(ShowLetterByLetter(dialogPanel.transform.Find("Text"), gameData.dialogMessage[nDialog].Item1));
+			GameObject imageGO = dialogPanel.transform.Find("Image").gameObject;
+			if(gameData.dialogMessage[nDialog].Item2 != null){
+				GameObjectManager.setGameObjectState(imageGO,true);
+				imageGO.GetComponent<Image>().sprite = getImageAsSprite(Application.streamingAssetsPath+Path.DirectorySeparatorChar+"Levels"+
+				Path.DirectorySeparatorChar+gameData.levelToLoad.Item1+Path.DirectorySeparatorChar+"Images"+Path.DirectorySeparatorChar+gameData.dialogMessage[nDialog].Item2);		}
+			else
+				GameObjectManager.setGameObjectState(imageGO,false);
 
-		if(nDialog + 1 < gameData.dialogMessage.Count){
-			setActiveOKButton(false);
-			setActiveNextButton(true);
+			if(nDialog + 1 < gameData.dialogMessage.Count){
+				setActiveOKButton(false);
+				setActiveNextButton(true);
+			}
+			else{
+				setActiveOKButton(true);
+				setActiveNextButton(false);
+			}
+			originalTextDisplayed = false;
 		}
-		else{
-			setActiveOKButton(true);
-			setActiveNextButton(false);
-		}
+
+
 	}
 
 	public void setActiveOKButton(bool active){
@@ -416,9 +436,17 @@ public class UISystem : FSystem {
 
 	// See OKButton in editor
 	public void closeDialogPanel(){
-		nDialog = 0;
-		gameData.dialogMessage = new List<(string,string)>();;
-		GameObjectManager.setGameObjectState(dialogPanel.transform.parent.gameObject, false);
+		if (!uiText.text.Equals(originalText) && !originalTextDisplayed) {
+			originalTextDisplayed = true;
+			dialogPanel.transform.Find("Text").GetComponent<Write>().delai = 0;
+		}
+        else {
+			nDialog = 0;
+			gameData.dialogMessage = new List<(string,string)>();;
+			GameObjectManager.setGameObjectState(dialogPanel.transform.parent.gameObject, false);
+			originalTextDisplayed = false;
+		}
+
 	}
 
 	public void reloadScene(){
