@@ -66,4 +66,12 @@
   <door posX="1" posZ="4" slot="0" direction="1" />
   <player posX="3" posZ="3" direction="3" />
   <score twoStars="3249" threeStars="4249"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="activate"/>
+	  <tag action="turn_left"/>
+	  <tag action="turn_right"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="select_correct_action"/>
+  </tags>
 </level>

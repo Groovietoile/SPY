@@ -38,4 +38,8 @@
   </actionBlocLimit>
   <player posX="2" posZ="1" direction="3" />
   <score twoStars="7999" threeStars="10500"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag concept="tutorial"/>
+  </tags>
 </level>

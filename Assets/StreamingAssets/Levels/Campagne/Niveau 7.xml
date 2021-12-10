@@ -64,4 +64,9 @@
   </actionBlocLimit>
   <player posX="4" posZ="4" direction="3" />
   <score twoStars="3875" threeStars="4875"/>
+    <tags>
+	  <tag action="forward"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="many_solutions"/>
+  </tags>
 </level>

@@ -50,4 +50,10 @@
   </actionBlocLimit>
   <player posX="3" posZ="1" direction="3" />
   <score twoStars="3666" threeStars="4666"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="turn_right"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="select_correct_action"/>
+  </tags>
 </level>

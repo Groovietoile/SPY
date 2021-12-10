@@ -67,4 +67,11 @@
   <player posX="4" posZ="2" direction="3" />
   <enemy posX="2" posZ="4" direction="1" range="2" selfRange="False" typeRange="0" />
   <score twoStars="3500" threeStars="4500"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="turn_right"/>
+	  <tag action="turn_left"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="select_correct_action"/>
+  </tags>
 </level>
