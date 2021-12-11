@@ -99,4 +99,13 @@
   <player posX="7" posZ="2" direction="3" />
   <player posX="7" posZ="4" direction="3" />
   <score twoStars="4562" threeStars="4740"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="if"/>
+	  <tag action="for"/>
+	  <tag action="turn_right"/>
+	  <tag action="turn_left"/>
+	  <tag concept="select_correct_action"/>
+	  <tag concept="nesting"/>
+  </tags>
 </level>

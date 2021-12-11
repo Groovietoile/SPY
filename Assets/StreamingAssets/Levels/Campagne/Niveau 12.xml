@@ -79,4 +79,11 @@
     </script>   
   </player>
   <score twoStars="0" threeStars="6888"/>
+  <tags>
+	  <tag action="for"/>
+	  <tag action="forward"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="analyse_script"/>
+	  <tag concept="nesting"/>
+  </tags>
 </level>

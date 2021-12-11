@@ -87,4 +87,12 @@
   </actionBlocLimit>
   <player posX="3" posZ="3" direction="0" />
   <score twoStars="0" threeStars="5185"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="if"/>
+	  <tag action="for"/>
+	  <tag action="turn_right"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="nesting"/>
+  </tags>
 </level>

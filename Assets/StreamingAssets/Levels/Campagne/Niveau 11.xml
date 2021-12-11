@@ -72,4 +72,12 @@
     </script>
   </enemy>
   <score twoStars="4142" threeStars="5142"/>
+  <tags>
+	  <tag action="wait"/>
+	  <tag action="forward"/>
+	  <tag action="turn_right"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="analyse_script"/>
+	  <tag concept="select_correct_action"/>
+  </tags>
 </level>
