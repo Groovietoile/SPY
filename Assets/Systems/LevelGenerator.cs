@@ -205,6 +205,7 @@ public class LevelGenerator : FSystem {
 		gameData.levelToLoadScore = null;
 		gameData.dialogMessage = new List<(string, string)>();
 		gameData.actionBlocLimit = new Dictionary<string, int>();
+		gameData.tagsDictionary = new Dictionary<string, List<string>>();
 		map = new List<List<int>>();
 
 		XmlDocument doc = new XmlDocument();
@@ -255,12 +256,33 @@ public class LevelGenerator : FSystem {
 					gameData.levelToLoadScore[0] = int.Parse(child.Attributes.GetNamedItem("threeStars").Value);
 					gameData.levelToLoadScore[1] = int.Parse(child.Attributes.GetNamedItem("twoStars").Value);
 					break;
+
+				case "tags":
+					readXMLTags(child);
+					//foreach(string key in gameData.tagsDictionary.Keys) {
+					//	foreach(string value in gameData.tagsDictionary[key]) {
+					//		Debug.Log("key " + key + " value " + value);
+     //                   }
+     //               }
+					break;
 			}
 		}
 
 		eraseMap();
 		generateMap();
         GameObjectManager.addComponent<GameLoaded>(MainLoop.instance.gameObject);
+	}
+
+	private void readXMLTags(XmlNode tags) {
+		foreach (XmlNode tag in tags.ChildNodes) {
+			string tagName = tag.Attributes[0].Name;
+			string tagValue = tag.Attributes.GetNamedItem(tagName).Value;
+			//Debug.Log("tag " + tagName + ", value " + tagValue);
+            if (!gameData.tagsDictionary.ContainsKey(tagName)) {
+				gameData.tagsDictionary[tagName] = new List<string>();
+			}
+			gameData.tagsDictionary[tagName].Add(tagValue);
+		}
 	}
 
 	private void readXMLMap(XmlNode mapNode){

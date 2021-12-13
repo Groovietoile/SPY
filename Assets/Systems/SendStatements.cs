@@ -12,10 +12,13 @@ public class SendStatements : FSystem {
 
     private Family f_levelButtonsLRS = FamilyManager.getFamily(new AllOfComponents(typeof(LRS_levelButton)));
     public static SendStatements instance;
+    private GameData gameData;
 
 
     public SendStatements()
     {
+        gameData = GameObject.Find("GameData").GetComponent<GameData>();
+
         if (Application.isPlaying)
         {
             initGBLXAPI();
@@ -102,5 +105,18 @@ public class SendStatements : FSystem {
             objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
 
         });       
+    }
+
+    public void endLevelSendStatement(GameObject go) {
+        //worked actions and concepts 
+        Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+        GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new {
+            verb = "end",
+            objectType = "level",
+            objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text,
+            activityExtensions = gameData.tagsDictionary
+        }) ;
+
+        
     }
 }

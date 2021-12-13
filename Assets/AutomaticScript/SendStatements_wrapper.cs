@@ -24,4 +24,9 @@ public class SendStatements_wrapper : MonoBehaviour
 		MainLoop.callAppropriateSystemMethod ("SendStatements", "startLevelSendStatement", go);
 	}
 
+	public void endLevelSendStatement(UnityEngine.GameObject go)
+	{
+		MainLoop.callAppropriateSystemMethod ("SendStatements", "endLevelSendStatement", go);
+	}
+
 }
