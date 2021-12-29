@@ -11,13 +11,16 @@ public class SendStatements : FSystem {
     private Family f_actionForLRS = FamilyManager.getFamily(new AllOfComponents(typeof(ActionPerformedForLRS)));
 
     private Family f_levelButtonsLRS = FamilyManager.getFamily(new AllOfComponents(typeof(LRS_levelButton)));
+    private Family newEnd_f = FamilyManager.getFamily(new AllOfComponents(typeof(NewEnd)));
     public static SendStatements instance;
     private GameData gameData;
+    private string currentLevelName;
 
 
     public SendStatements()
     {
         gameData = GameObject.Find("GameData").GetComponent<GameData>();
+        currentLevelName = "";
 
         if (Application.isPlaying)
         {
@@ -26,6 +29,7 @@ public class SendStatements : FSystem {
         instance = this;
 
         f_levelButtonsLRS.addEntryCallback(startLevelSendStatement);
+        newEnd_f.addEntryCallback(endLevelSendStatement);
     }
 
     public void initGBLXAPI()
@@ -96,27 +100,43 @@ public class SendStatements : FSystem {
         });
     }
 
-    public void startLevelSendStatement(GameObject go){
-        Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    public void startLevelSendStatement(GameObject unused){ //TO DO : recommencer niveau et passer au niveau suivant
+        //Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+        //currentLevelName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+
+        //get current level name
+        currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
+        Debug.Log("currentLevelName = " + currentLevelName);
+
+        //send statement
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
         {
             verb = "started",
             objectType = "level",
-            objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+            objectName = currentLevelName
 
-        });       
+        });
+        
     }
 
     public void endLevelSendStatement(GameObject go) {
-        //worked actions and concepts 
-        Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
-        GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new {
-            verb = "end",
-            objectType = "level",
-            objectName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text,
-            activityExtensions = gameData.tagsDictionary
-        }) ;
+        currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
+        Debug.Log("player won level : " + currentLevelName);
+        //if player won, send statement
 
-        
+        if(go.GetComponent<NewEnd>().endType == NewEnd.Win) {
+            //worked actions and concepts 
+            GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new {
+                verb = "completed",
+                objectType = "level",
+                objectName = currentLevelName,
+                activityExtensions = gameData.tagsDictionary
+                /***
+                new Dictionary<string, List<string>> {
+                    { "action", new List<string>{"myContent1", "myContent2"} }
+                }***/
+            });
+
+        }
     }
 }

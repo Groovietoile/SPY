@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using System.IO;
+using System.Collections;
 
 /// <summary>
 /// Manage dialogs at the begining of the level
@@ -449,6 +450,11 @@ public class UISystem : FSystem {
 
 	}
 
+	private IEnumerator delayLoadMainScene() {
+		yield return null;
+		GameObjectManager.loadScene("MainScene");
+	}
+
 	public void reloadScene(){
 		gameData.totalActionBloc = 0;
 		gameData.totalStep = 0;
@@ -456,7 +462,9 @@ public class UISystem : FSystem {
 		gameData.totalCoin = 0;
 		gameData.levelToLoadScore = null;
 		gameData.dialogMessage = new List<(string,string)>();
-		GameObjectManager.loadScene("MainScene");
+		GameObjectManager.addComponent<LRS_levelButton>(MainLoop.instance.gameObject);
+		MainLoop.instance.StartCoroutine(delayLoadMainScene());
+		//GameObjectManager.loadScene("MainScene");
 	}
 
 	// See TitleScreen and ScreenTitle buttons in editor
@@ -472,7 +480,7 @@ public class UISystem : FSystem {
 	}
 
 	// See NextLevel button in editor
-	public void nextLevel(){
+	public void nextLevel() {
 		gameData.levelToLoad.Item2++;
 		reloadScene();
 		gameData.actionsHistory = null;
@@ -488,7 +496,9 @@ public class UISystem : FSystem {
 		gameData.dialogMessage = new List<(string,string)>();
 		if(gameData.actionsHistory != null)
 			UnityEngine.Object.DontDestroyOnLoad(gameData.actionsHistory);
-		GameObjectManager.loadScene("MainScene");
+		GameObjectManager.addComponent<LRS_levelButton>(MainLoop.instance.gameObject);
+		MainLoop.instance.StartCoroutine(delayLoadMainScene());
+		//GameObjectManager.loadScene("MainScene");
 	}
 
 	public void reloadState(){

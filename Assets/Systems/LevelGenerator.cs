@@ -205,7 +205,7 @@ public class LevelGenerator : FSystem {
 		gameData.levelToLoadScore = null;
 		gameData.dialogMessage = new List<(string, string)>();
 		gameData.actionBlocLimit = new Dictionary<string, int>();
-		gameData.tagsDictionary = new Dictionary<string, List<string>>();
+		gameData.tagsDictionary = new Dictionary<string, string>();
 		map = new List<List<int>>();
 
 		XmlDocument doc = new XmlDocument();
@@ -279,9 +279,12 @@ public class LevelGenerator : FSystem {
 			string tagValue = tag.Attributes.GetNamedItem(tagName).Value;
 			//Debug.Log("tag " + tagName + ", value " + tagValue);
             if (!gameData.tagsDictionary.ContainsKey(tagName)) {
-				gameData.tagsDictionary[tagName] = new List<string>();
+				gameData.tagsDictionary[tagName] = tagValue;
 			}
-			gameData.tagsDictionary[tagName].Add(tagValue);
+            else {
+				gameData.tagsDictionary[tagName] += ", " + tagValue;
+			}
+			
 		}
 	}
 

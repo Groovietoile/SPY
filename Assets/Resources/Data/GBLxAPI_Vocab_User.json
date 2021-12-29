@@ -4,7 +4,17 @@
     "content": {},
     "direction": {},
     "domain": {},
-    "extension": {},
+    "extension": {
+        "concept": {
+            "description": {
+                "en-US": "concept worked in the level"
+            },
+            "id": "https://w3id.org/xapi/gblxapi/extensions/concept",
+            "name": {
+                "en-US": "concept"
+            }
+        }
+    },
     "focus": {},
     "grade": {},
     "link": {},
