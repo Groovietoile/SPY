@@ -16,4 +16,5 @@ public class GameData : MonoBehaviour {
 	public int totalCoin;
 	public GameObject actionsHistory; //all actions made in the level, displayed at the end
 	public Dictionary<string, string> tagsDictionary;
+	public string userName;
 }

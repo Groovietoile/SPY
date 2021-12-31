@@ -18,6 +18,8 @@ public class TitleScreenSystem : FSystem {
 	private GameObject backButton;
 	private GameObject cList;
 	private Dictionary<GameObject, List<GameObject>> levelButtons; //key = directory button,  value = list of level buttons
+	private TMP_InputField inputName; // Where the user input their name
+	private GameObject input;
 
 	public TitleScreenSystem(){
 		if (Application.isPlaying)
@@ -46,6 +48,9 @@ public class TitleScreenSystem : FSystem {
 				}
 			}
 
+			inputName = GameObject.Find("InputName").GetComponent<TMP_InputField>();
+			input = GameObject.Find("InputName");
+
 			//create level directory buttons
 			foreach (string key in gameData.levelList.Keys)
 			{
@@ -69,6 +74,14 @@ public class TitleScreenSystem : FSystem {
 				}
 			}
 		}
+	}
+
+	// Save user name in GameData
+	public void saveUserName()
+	{
+		string name = inputName.text;
+		Debug.Log(name);
+		gameData.userName = name;
 	}
 
 	private List<string> readScenario(string repositoryPath){
@@ -107,6 +120,7 @@ public class TitleScreenSystem : FSystem {
 		GameObjectManager.setGameObjectState(playButton, false);
 		GameObjectManager.setGameObjectState(quitButton, false);
 		GameObjectManager.setGameObjectState(backButton, true);
+		GameObjectManager.setGameObjectState(input, false);
 	}
 
 	private void showLevels(GameObject levelDirectory){

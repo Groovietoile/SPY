@@ -9,6 +9,11 @@ public class TitleScreenSystem_wrapper : MonoBehaviour
 		this.hideFlags = HideFlags.HideInInspector; // Hide this component in Inspector
 	}
 
+	public void saveUserName()
+	{
+		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "saveUserName", null);
+	}
+
 	public void showCampagneMenu()
 	{
 		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "showCampagneMenu", null);

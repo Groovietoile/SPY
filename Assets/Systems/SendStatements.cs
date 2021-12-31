@@ -41,7 +41,9 @@ public class SendStatements : FSystem {
 
         string sessionID = Environment.MachineName + "-" + DateTime.Now.ToString("yyyy.MM.dd.hh.mm.ss");
         //Generate player name unique to each playing session (computer name + date + hour)
-        GBL_Interface.playerName = String.Format("{0:X}", sessionID.GetHashCode());
+        //GBL_Interface.playerName = String.Format("{0:X}", sessionID.GetHashCode());
+        GBL_Interface.playerName = gameData.userName;
+
         //Generate a UUID from the player name
         GBL_Interface.userUUID = GBLUtils.GenerateActorUUID(GBL_Interface.playerName);
     }
@@ -104,9 +106,14 @@ public class SendStatements : FSystem {
         //Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
         //currentLevelName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
 
+        GBL_Interface.playerName = gameData.userName;
+
+
         //get current level name
         currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
         Debug.Log("currentLevelName = " + currentLevelName);
+
+        Debug.Log(GBL_Interface.playerName + " asks to send statement...");
 
         //send statement
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
