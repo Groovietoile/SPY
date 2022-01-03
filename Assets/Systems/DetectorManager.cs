@@ -57,7 +57,7 @@ public class DetectorManager : FSystem {
     private IEnumerator delayUpdateDetector(){
         yield return null; // On NewStep currentAction is moved to the next action
         yield return null; // Following frame CurrentAction is available in families and action is executed (for exemple drone rotation)
-        // then we can update dectetors
+        // then we can update detectors
 
         //Destroy detection cells
         foreach (GameObject detector in detectorGO)

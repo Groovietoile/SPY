@@ -52,7 +52,7 @@
 
   </map>
   <dialogs dialog="Tu peux maintenant utiliser l'action attendre." img="WaitIcon.png"/>
-  <dialogs dialog ="Attention !&#xA;Observe bien le drone !&#xA;Il a lui aussi un script."/>
+  <dialogs dialog ="Attention !&#xA;Observe bien le drone !&#xA;Il a lui aussi un script.&#xA;Clique sur lui pour connaître son comportement !"/>
   <actionBlocLimit>
     <limit actionType="Forward" limit="-1" />
     <limit actionType="TurnLeft" limit="-1" />

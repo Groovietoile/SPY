@@ -393,14 +393,12 @@ public class UISystem : FSystem {
 	// See NextButton in editor
 	public void nextDialog(){
 		if (!uiText.text.Equals(originalText) && !originalTextDisplayed) {
-			Debug.Log("if");
 			originalTextDisplayed = true;
 			delay = dialogPanel.transform.Find("Text").GetComponent<Write>().delai;
 			dialogPanel.transform.Find("Text").GetComponent<Write>().delai = 0;
 			//dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[nDialog].Item1;
 		}
 		else {
-			Debug.Log("else");
 			dialogPanel.transform.Find("Text").GetComponent<Write>().delai = delay;
 			nDialog++;
 			//dialogPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = gameData.dialogMessage[nDialog].Item1;

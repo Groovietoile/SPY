@@ -80,7 +80,7 @@ public class TitleScreenSystem : FSystem {
 	public void saveUserName()
 	{
 		string name = inputName.text;
-		Debug.Log(name);
+		//Debug.Log(name);
 		gameData.userName = name;
 	}
 
