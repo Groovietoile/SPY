@@ -176,6 +176,7 @@ public class CurrentActionManager : FSystem
 				break;
 		}
 
+		bool entityDetected = false;
 		// check target position
 		switch (ifAction.ifEntityType)
 		{
@@ -183,43 +184,98 @@ public class CurrentActionManager : FSystem
 				foreach (GameObject go in wallGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 					 go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+					{
 						ifok = !ifAction.ifNot;
-				break;
+						entityDetected = true;
+						break;
+					}
+
+				if(!entityDetected)
+					ifok = ifAction.ifNot;
+                break;
+
 			case 1: // doors
 				foreach (GameObject go in doorGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 					 go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
+
 			case 2: // ennemies
 				foreach (GameObject go in droneGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 						go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
+
 			case 3: // allies
 				foreach (GameObject go in playerGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 						go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
+
 			case 4: // consoles
 				foreach (GameObject go in activableConsoleGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 						go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
+
 			case 5: // detectors
 				foreach (GameObject go in redDetectorGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 					 go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
+
 			case 6: // coins
 				foreach (GameObject go in coinGO)
 					if (go.GetComponent<Position>().x == scripted.GetComponent<Position>().x + vec.x &&
 					 go.GetComponent<Position>().z == scripted.GetComponent<Position>().z + vec.y)
+                    {
 						ifok = !ifAction.ifNot;
+						entityDetected = true;
+						break;
+					}
+				
+				if (!entityDetected)
+					ifok = ifAction.ifNot;
 				break;
 		}
 		return ifok;

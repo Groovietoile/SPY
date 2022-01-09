@@ -40,10 +40,13 @@ public class UISystem : FSystem {
 	private GameObject endPanel;
 	private GameObject executionCanvas;
 	
+	// Animated text
 	private string originalText;
 	TextMeshProUGUI uiText;
 	private bool originalTextDisplayed;
 	private float delay;
+
+	//private ScenarioSystem scenarioSystem;
 
 	public UISystem()
 	{
@@ -242,15 +245,22 @@ public class UISystem : FSystem {
             case 2:
 				int score = (10000 / (gameData.totalActionBloc + 1) + 5000 / (gameData.totalStep + 1) + 6000 / (gameData.totalExecute + 1) + 5000 * gameData.totalCoin);
                 Transform verticalCanvas = endPanel.transform.Find("VerticalCanvas");
-				MainLoop.instance.StartCoroutine(ShowLetterByLetter(endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().transform, "Bravo vous avez gagné !\nScore: " + score));
+
+				// With score
+				//MainLoop.instance.StartCoroutine(ShowLetterByLetter(endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().transform, "Bravo vous avez gagné !\nScore: " + score));
 				//verticalCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Bravo vous avez gagné !\nScore: " + score;
-                setScoreStars(score, verticalCanvas.Find("ScoreCanvas"));
+				
+				// Without score
+				MainLoop.instance.StartCoroutine(ShowLetterByLetter(endPanel.transform.Find("VerticalCanvas").GetComponentInChildren<TextMeshProUGUI>().transform, "Bravo vous avez gagné !"));
+
+				setScoreStars(score, verticalCanvas.Find("ScoreCanvas"));
 
 				endPanel.GetComponent<AudioSource>().clip = Resources.Load("Sound/VictorySound") as AudioClip;
                 endPanel.GetComponent<AudioSource>().loop = false;
                 endPanel.GetComponent<AudioSource>().Play();
 				GameObjectManager.setGameObjectState(endPanel.transform.Find("NextLevel").gameObject, true);
 				GameObjectManager.setGameObjectState(endPanel.transform.Find("ReloadState").gameObject, false);
+
 				//End
 				if (gameData.levelToLoad.Item2 >= gameData.levelList[gameData.levelToLoad.Item1].Count - 1)
                 {
@@ -376,6 +386,7 @@ public class UISystem : FSystem {
 		delay = dialogPanel.transform.Find("Text").GetComponent<Write>().delai;
 	}
 
+	// Show dialogs letter by letter
 	IEnumerator<UnityEngine.WaitForSeconds> ShowLetterByLetter(Transform go, string text)
 	{
 		uiText = go.GetComponent<TextMeshProUGUI>();
@@ -478,7 +489,9 @@ public class UISystem : FSystem {
 	}
 
 	// See NextLevel button in editor
+	// Call ScenarioSystem
 	public void nextLevel() {
+		//ScenarioSystem.chooseNextLevel();
 		gameData.levelToLoad.Item2++;
 		reloadScene();
 		gameData.actionsHistory = null;

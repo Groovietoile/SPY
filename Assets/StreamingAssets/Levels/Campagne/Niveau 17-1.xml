@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<level>
+  <map>
+    <line>
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+    </line>
+    <line>
+      <row value="1" />
+      <row value="3" />
+      <row value="1" />
+    </line>
+    <line>
+      <row value="1" />
+      <row value="2" />
+      <row value="1" />
+    </line>
+    <line>
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+    </line>
+  </map>
+	<dialogs dialog="Tu peux maintenant utiliser l'action Si. Elle permet d'effectuer certains ordres lorsque certaines conditions sont remplies." img="SiIcone.png" />
+    <dialogs dialog="Tu pourrais avancer si il n'y a pas de mur devant toi par exemple." img="ifExample.png"/>
+	<dialogs dialog="N'oublies pas de mettre l'action dans le bloc Si !"/>
+  <actionBlocLimit>
+    <limit actionType="Forward" limit="1" />
+    <limit actionType="TurnLeft" limit="0" />
+    <limit actionType="TurnRight" limit="0" />
+    <limit actionType="Wait" limit="0" />
+    <limit actionType="Activate" limit="0" />
+    <limit actionType="TurnBack" limit="0" />
+    <limit actionType="If" limit="1" />
+    <limit actionType="For" limit="0" />
+    <limit actionType="While" limit="0" />
+  </actionBlocLimit>
+  <player posX="2" posZ="1" direction="3">
+	  <script>
+      <action actionType="If" ifDirection="0" ifEntityType="0" range="1" ifNot="True">
+        <action actionType="Forward"/>
+      </action>
+    </script>   
+  </player>
+  <score twoStars="0" threeStars="6888"/>
+  <tags>
+	  <tag action="if"/>
+	  <tag action="forward"/>
+	  <tag concept="tutorial"/>
+	  <tag concept="nesting"/>
+  </tags>
+</level>
