@@ -488,6 +488,7 @@ public class UISystem : FSystem {
 	// See NextLevel button in editor
 	// Call ScenarioSystem
 	public void nextLevel() {
+		//adaptive level progression
 		GameObjectManager.addComponent<LevelScenario>(MainLoop.instance.gameObject);
 		reloadScene();
 		gameData.actionsHistory = null;

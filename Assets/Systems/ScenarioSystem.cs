@@ -20,18 +20,18 @@ public class ScenarioSystem : FSystem {
 	// Choose next level according to last level's type or last level's score
 	private void chooseNextLevel(GameObject unused)
     {
-		Debug.Log("chooseNextLevel");
+		//Debug.Log("chooseNextLevel");
 		int scoredStars = PlayerPrefs.GetInt(gameData.levelToLoad.Item1 + Path.DirectorySeparatorChar + gameData.levelToLoad.Item2 + gameData.scoreKey, 0);
 
 		// If last level is tutorial, go to next level
 		if (gameData.tagsDictionary.ContainsValue("tutorial") || scoredStars == 2) {
 			gameData.levelToLoad.Item2++;
-			Debug.Log("last level is tutorial, go to next level");
+			//Debug.Log("last level is tutorial, go to next level");
 		}
 
 		// If last level too hard (1 star) : choose previous level not done if it exists
 		else if (scoredStars == 1) {
-			Debug.Log("1 star");
+			//Debug.Log("1 star");
 			int currentLevel = gameData.levelToLoad.Item2;
 			int nextLevel = -1;
 			for (int i = gameData.levelToLoad.Item2 - 1; i > 0; i--) {
@@ -39,26 +39,25 @@ public class ScenarioSystem : FSystem {
 				//level not done = zero star
 				if (PlayerPrefs.GetInt(gameData.levelToLoad.Item1 + Path.DirectorySeparatorChar + gameData.levelToLoad.Item2 + gameData.scoreKey, 0) == 0) {
 					nextLevel = i;
-					Debug.Log("previous level not done");
+					//Debug.Log("previous level not done");
 					break;
                 }
 			}
 			//there is no previous level not done
 			if (nextLevel == -1) {
 				gameData.levelToLoad.Item2 = currentLevel + 1;
-				Debug.Log("no previous level not done");
+				//Debug.Log("no previous level not done");
 			}
 		}
 
 		// If last level too easy (3 stars) : choose level before next tutorial if it exists
 		else if (scoredStars == 3) {
-			Debug.Log("3 stars");
-			Debug.Log("current level = " + gameData.levelToLoad.Item2);
+			//Debug.Log("3 stars");
+			//Debug.Log("current level = " + gameData.levelToLoad.Item2);
 			int nextTuto = -1;
 			for(int i = gameData.levelToLoad.Item2 + 1 ; i < gameData.levelList[gameData.levelToLoad.Item1].Count ; i++) {
-				Debug.Log(i + " à " + gameData.levelList[gameData.levelToLoad.Item1].Count);
 				if (levelHasTag(gameData.levelToLoad.Item1, i, "tutorial")) {
-					Debug.Log("tuto = " + i);
+					//Debug.Log("tuto = " + i);
 					nextTuto = i;
 					break;
                 }
@@ -67,22 +66,22 @@ public class ScenarioSystem : FSystem {
 			//no tutorial found = go to next level
             if (nextTuto == -1) {
 				gameData.levelToLoad.Item2++;
-				Debug.Log("no tutorial found = go to next level : "+ gameData.levelToLoad.Item2);
+				//Debug.Log("no tutorial found = go to next level : "+ gameData.levelToLoad.Item2);
 			}
             else {
 				//level before next tutorial exists
 				if (nextTuto > gameData.levelToLoad.Item2 + 1) {
 					gameData.levelToLoad.Item2 = nextTuto - 1;
-					Debug.Log("level before next tutorial exists");
+					//Debug.Log("level before next tutorial exists");
 				}
 				//next level = tuto
                 else {
 					gameData.levelToLoad.Item2 = nextTuto;
-					Debug.Log("next level = tuto");
+					//Debug.Log("next level = tuto");
 				}
             }
 		}
-    }
+	}
 
 	//check if level contains tag
 	private bool levelHasTag(string directory, int levelIndex, string tagName) {

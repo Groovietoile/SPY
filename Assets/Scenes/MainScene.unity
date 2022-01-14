@@ -2637,6 +2637,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: CurrentActionManager
     _pause: 0
+  - _typeAssemblyQualifiedName: ScenarioSystem, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: ScenarioSystem
+    _pause: 0
   - _typeAssemblyQualifiedName: SendStatements, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: SendStatements
@@ -2644,10 +2648,6 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: SaveManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: SaveManager
-    _pause: 0
-  - _typeAssemblyQualifiedName: ScenarioSystem, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: ScenarioSystem
     _pause: 0
   _lateUpdateSystemDescriptions:
   - _typeAssemblyQualifiedName: HighLightSystem, Assembly-CSharp, Version=0.0.0.0,

@@ -14,6 +14,11 @@ public class TitleScreenSystem_wrapper : MonoBehaviour
 		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "saveUserName", null);
 	}
 
+	public void userNameChanged()
+	{
+		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "userNameChanged", null);
+	}
+
 	public void showCampagneMenu()
 	{
 		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "showCampagneMenu", null);
