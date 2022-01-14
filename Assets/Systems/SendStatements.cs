@@ -42,7 +42,6 @@ public class SendStatements : FSystem {
         string sessionID = Environment.MachineName + "-" + DateTime.Now.ToString("yyyy.MM.dd.hh.mm.ss");
         //Generate player name unique to each playing session (computer name + date + hour)
         //GBL_Interface.playerName = String.Format("{0:X}", sessionID.GetHashCode());
-        GBL_Interface.playerName = gameData.userName;
 
         //Generate a UUID from the player name
         GBL_Interface.userUUID = GBLUtils.GenerateActorUUID(GBL_Interface.playerName);

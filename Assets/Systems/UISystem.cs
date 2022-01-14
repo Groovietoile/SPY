@@ -46,8 +46,6 @@ public class UISystem : FSystem {
 	private bool originalTextDisplayed;
 	private float delay;
 
-	//private ScenarioSystem scenarioSystem;
-
 	public UISystem()
 	{
 		if (Application.isPlaying)
@@ -473,7 +471,6 @@ public class UISystem : FSystem {
 		gameData.dialogMessage = new List<(string,string)>();
 		GameObjectManager.addComponent<LRS_levelButton>(MainLoop.instance.gameObject);
 		MainLoop.instance.StartCoroutine(delayLoadMainScene());
-		//GameObjectManager.loadScene("MainScene");
 	}
 
 	// See TitleScreen and ScreenTitle buttons in editor
@@ -491,8 +488,7 @@ public class UISystem : FSystem {
 	// See NextLevel button in editor
 	// Call ScenarioSystem
 	public void nextLevel() {
-		//ScenarioSystem.chooseNextLevel();
-		gameData.levelToLoad.Item2++;
+		GameObjectManager.addComponent<LevelScenario>(MainLoop.instance.gameObject);
 		reloadScene();
 		gameData.actionsHistory = null;
 	}
@@ -509,7 +505,6 @@ public class UISystem : FSystem {
 			UnityEngine.Object.DontDestroyOnLoad(gameData.actionsHistory);
 		GameObjectManager.addComponent<LRS_levelButton>(MainLoop.instance.gameObject);
 		MainLoop.instance.StartCoroutine(delayLoadMainScene());
-		//GameObjectManager.loadScene("MainScene");
 	}
 
 	public void reloadState(){
