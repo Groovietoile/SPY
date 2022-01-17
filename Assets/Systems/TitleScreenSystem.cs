@@ -17,6 +17,7 @@ public class TitleScreenSystem : FSystem {
 	private GameObject playButton;
 	private GameObject quitButton;
 	private GameObject backButton;
+	private GameObject canvas;
 	private GameObject cList;
 	private Dictionary<GameObject, List<GameObject>> levelButtons; //key = directory button,  value = list of level buttons
 	private TMP_InputField inputName; // Where the user input their name
@@ -33,6 +34,7 @@ public class TitleScreenSystem : FSystem {
 			playButton = GameObject.Find("Jouer");
 			quitButton = GameObject.Find("Quitter");
 			backButton = GameObject.Find("Retour");
+			canvas = GameObject.Find("Canvas");
 			GameObjectManager.dontDestroyOnLoadAndRebind(GameObject.Find("GameData"));
 
 			cList = GameObject.Find("CampagneList");
@@ -62,12 +64,16 @@ public class TitleScreenSystem : FSystem {
 				levelButtons[directoryButton] = new List<GameObject>();
 				GameObjectManager.bind(directoryButton);
 				// add on click
-				directoryButton.GetComponent<Button>().onClick.AddListener(delegate { showLevels(directoryButton); });
+				directoryButton.GetComponent<Button>().onClick.AddListener(delegate {
+					showLevels(directoryButton);
+					canvas.GetComponent<AudioSource>().Play();
+				});
 				// create level buttons
 				for (int i = 0; i < gameData.levelList[key].Count; i++)
 				{
 					GameObject button = Object.Instantiate<GameObject>(Resources.Load("Prefabs/LevelButton") as GameObject, cList.transform);
-					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => GameObjectManager.addComponent<LRS_levelButton>(button.transform.Find("Button").gameObject));  
+					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => GameObjectManager.addComponent<LRS_levelButton>(button.transform.Find("Button").gameObject));
+					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => canvas.GetComponent<AudioSource>().Play());
 					button.transform.Find("Button").GetChild(0).GetComponent<TextMeshProUGUI>().text = Path.GetFileNameWithoutExtension(gameData.levelList[key][i]);
 					int indice = i;
 					button.transform.Find("Button").GetComponent<Button>().onClick.AddListener(delegate { launchLevel(key, indice); });

@@ -88,6 +88,11 @@ public class UISystem : FSystem {
 		}
     }
 
+	private IEnumerator delaySound(AudioSource sound) {
+		yield return null;
+		sound.Play();
+    }
+
 	private IEnumerator delaySetOpacity() {
 		yield return null;
 		foreach (GameObject bouton in buttons_f) {
@@ -621,7 +626,8 @@ public class UISystem : FSystem {
 			//empty editable container
 			resetScript();
 
-			buttonPlay.GetComponent<AudioSource>().Play();
+			MainLoop.instance.StartCoroutine(delaySound(buttonPlay.GetComponent<AudioSource>()));
+			//buttonPlay.GetComponent<AudioSource>().Play();
 			foreach(GameObject go in agents){
 				LayoutRebuilder.ForceRebuildLayoutImmediate(go.GetComponent<ScriptRef>().uiContainer.GetComponent<RectTransform>());
 				if(go.CompareTag("Player")){				
