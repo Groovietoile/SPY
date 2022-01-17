@@ -19,6 +19,16 @@ public class TitleScreenSystem_wrapper : MonoBehaviour
 		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "userNameChanged", null);
 	}
 
+	public void setOpacity(UnityEngine.GameObject bouton)
+	{
+		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "setOpacity", bouton);
+	}
+
+	public void changeOpacity()
+	{
+		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "changeOpacity", null);
+	}
+
 	public void showCampagneMenu()
 	{
 		MainLoop.callAppropriateSystemMethod ("TitleScreenSystem", "showCampagneMenu", null);

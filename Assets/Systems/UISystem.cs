@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.IO;
 using System.Collections;
+using System.Linq;
 
 /// <summary>
 /// Manage dialogs at the begining of the level
@@ -26,6 +27,7 @@ public class UISystem : FSystem {
 	private Family emptyPlayerExecution = FamilyManager.getFamily(new AllOfComponents(typeof(EmptyExecution))); 
 	private Family agents = FamilyManager.getFamily(new AllOfComponents(typeof(ScriptRef)));
 	private Family libraryPanel = FamilyManager.getFamily(new AllOfComponents(typeof(GridLayoutGroup)));
+	private Family buttons_f = FamilyManager.getFamily(new AllOfComponents(typeof(Button)));
 	private GameData gameData;
 	private GameObject dialogPanel;
 	private int nDialog = 0;
@@ -66,6 +68,8 @@ public class UISystem : FSystem {
 			dialogPanel = GameObject.Find("DialogPanel");
 			GameObjectManager.setGameObjectState(dialogPanel.transform.parent.gameObject, false);
 
+			//buttons_f.addEntryCallback(setOpacity);
+			MainLoop.instance.StartCoroutine(delaySetOpacity());
 			requireEndPanel.addEntryCallback(displayEndPanel);
 			displayedEndPanel.addEntryCallback(onDisplayedEndPanel);
 			actions.addEntryCallback(linkTo);
@@ -82,6 +86,52 @@ public class UISystem : FSystem {
 
 			loadHistory(); 
 		}
+    }
+
+	private IEnumerator delaySetOpacity() {
+		yield return null;
+		foreach (GameObject bouton in buttons_f) {
+			setOpacity(bouton);
+        }
+    }
+
+	private void setOpacity(GameObject bouton) {
+		Color buttonColor;
+		Debug.Log("set opacity " + bouton.name);
+        if (bouton.transform.childCount > 0 && bouton.transform.GetChild(0).GetComponent<TextMeshProUGUI>()) {
+
+			if (PlayerPrefs.GetString("opacity").Equals("off")) {
+				Debug.Log("off");
+				buttonColor = bouton.GetComponent<Image>().color;
+				buttonColor.a = 255;
+				bouton.GetComponent<Image>().color = buttonColor;
+				bouton.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI Images/background.png");
+
+				dialogPanel.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI Images/background.png");
+				dialogPanel.GetComponent<Image>().color = Color.black;
+
+				endPanel.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI Images/background.png");
+				dialogPanel.GetComponent<Image>().color = Color.black;
+			}
+
+			else { //on = default value
+				Debug.Log("on");
+				buttonColor = bouton.GetComponent<Image>().color;
+				buttonColor.a = 129;
+				bouton.GetComponent<Image>().color = buttonColor;
+
+				// Load all sprites in atlas
+				Sprite[] atlas = Resources.LoadAll<Sprite>("Sci-Fi UI/_SciFi_GUISkin_/atlas");
+
+				bouton.GetComponent<Image>().sprite = atlas.Single(s => s.name == "progress_bar");
+
+				dialogPanel.GetComponent<Image>().sprite = atlas.Single(s => s.name == "window");
+				dialogPanel.GetComponent<Image>().color = Color.white;
+
+				endPanel.GetComponent<Image>().sprite = atlas.Single(s => s.name == "window");
+				dialogPanel.GetComponent<Image>().color = Color.white;
+			}
+        }
     }
 
 	private void onNewCurrentAction(GameObject go){

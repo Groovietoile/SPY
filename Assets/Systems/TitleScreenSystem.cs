@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using TMPro;
 using System.Xml;
+using System.Linq;
 
 /// <summary>
 /// Manage main menu to launch a specific mission
@@ -20,6 +21,8 @@ public class TitleScreenSystem : FSystem {
 	private Dictionary<GameObject, List<GameObject>> levelButtons; //key = directory button,  value = list of level buttons
 	private TMP_InputField inputName; // Where the user input their name
 	private GameObject inputField;
+	private GameObject opacityToggle;
+	private Family buttons_f = FamilyManager.getFamily(new AnyOfComponents(typeof(Button), typeof(Toggle)));
 
 	public TitleScreenSystem(){
 		if (Application.isPlaying)
@@ -50,7 +53,7 @@ public class TitleScreenSystem : FSystem {
 
 			inputName = GameObject.Find("InputName").GetComponent<TMP_InputField>();
 			inputField = GameObject.Find("InputName");
-
+			opacityToggle = GameObject.Find("OpacityToggle");
 			//create level directory buttons
 			foreach (string key in gameData.levelList.Keys)
 			{
@@ -78,6 +81,15 @@ public class TitleScreenSystem : FSystem {
 				GameObjectManager.setGameObjectState(inputField, false);
 				playButton.GetComponent<Button>().interactable = true;
 			}
+
+			MainLoop.instance.StartCoroutine(delaySetOpacity());
+		}
+	}
+
+	private IEnumerator delaySetOpacity() {
+		yield return null;
+		foreach (GameObject bouton in buttons_f) {
+			setOpacity(bouton);
 		}
 	}
 
@@ -97,6 +109,42 @@ public class TitleScreenSystem : FSystem {
 		}
     }
 
+	public void setOpacity(GameObject bouton) {
+		Color buttonColor;
+
+		if (PlayerPrefs.GetString("opacity").Equals("off")) {
+			buttonColor = bouton.GetComponent<Image>().color;
+			buttonColor.a = 255;
+			bouton.GetComponent<Image>().color = buttonColor;
+			bouton.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI Images/background.png");
+			opacityToggle.GetComponent<Toggle>().isOn = false;
+		}
+
+		else { //on = default value
+			buttonColor = bouton.GetComponent<Image>().color;
+			buttonColor.a = 129;
+			bouton.GetComponent<Image>().color = buttonColor;
+
+			// Load all sprites in atlas
+			Sprite[] atlas = Resources.LoadAll<Sprite>("Sci-Fi UI/_SciFi_GUISkin_/atlas");
+
+			bouton.GetComponent<Image>().sprite = atlas.Single(s => s.name == "progress_bar");
+			opacityToggle.GetComponent<Toggle>().isOn = true;
+		}
+	}
+
+	public void changeOpacity() {
+		if (opacityToggle.GetComponent<Toggle>().isOn) {
+			PlayerPrefs.SetString("opacity", "on");
+		}
+		else {
+			PlayerPrefs.SetString("opacity", "off");
+		}
+		foreach (GameObject bouton in buttons_f) {
+			setOpacity(bouton);
+		}
+
+	}
 	private List<string> readScenario(string repositoryPath){
 		if(File.Exists(repositoryPath+Path.DirectorySeparatorChar+"Scenario.xml")){
 			List<string> levelList = new List<string>();
@@ -133,6 +181,7 @@ public class TitleScreenSystem : FSystem {
 		GameObjectManager.setGameObjectState(quitButton, false);
 		GameObjectManager.setGameObjectState(backButton, true);
 		GameObjectManager.setGameObjectState(inputField, false);
+		GameObjectManager.setGameObjectState(opacityToggle, false);
 	}
 
 	private void showLevels(GameObject levelDirectory){
@@ -195,6 +244,7 @@ public class TitleScreenSystem : FSystem {
 				GameObjectManager.setGameObjectState(playButton, true);
 				GameObjectManager.setGameObjectState(quitButton, true);
 				GameObjectManager.setGameObjectState(backButton, false);
+				GameObjectManager.setGameObjectState(opacityToggle, true);
 				playButton.GetComponent<Button>().interactable = true;
 				break;
 			}
