@@ -105,10 +105,10 @@ public class UISystem : FSystem {
 		MainLoop.instance.StartCoroutine(timer());
 	}
 
-	private IEnumerator delaySound(AudioSource sound) {
-		yield return null;
-		sound.Play();
-    }
+	//called on click for each execution button
+	public void playExecutionSound() {
+		executionCanvas.GetComponent<AudioSource>().Play();
+	}
 
 	private IEnumerator delaySetOpacity() {
 		yield return null;
@@ -641,9 +641,7 @@ public class UISystem : FSystem {
 			//empty editable container
 			resetScript();
 
-			MainLoop.instance.StartCoroutine(delaySound(buttonPlay.GetComponent<AudioSource>()));
-			//buttonPlay.GetComponent<AudioSource>().Play();
-			foreach(GameObject go in agents){
+			foreach (GameObject go in agents){
 				LayoutRebuilder.ForceRebuildLayoutImmediate(go.GetComponent<ScriptRef>().uiContainer.GetComponent<RectTransform>());
 				if(go.CompareTag("Player")){				
 					GameObjectManager.setGameObjectState(go.GetComponent<ScriptRef>().uiContainer,true);				

@@ -92,7 +92,6 @@ public class SendStatements : FSystem {
 
     public void testSendStatement()
     {
-        Debug.Log(GBL_Interface.playerName + " asks to send statement...");
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
         {
             verb = "interacted",
@@ -101,9 +100,7 @@ public class SendStatements : FSystem {
         });
     }
 
-    public void startLevelSendStatement(GameObject unused){ //TO DO : recommencer niveau et passer au niveau suivant
-        //Debug.Log(go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
-        //currentLevelName = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+    public void startLevelSendStatement(GameObject unused){
 
         GBL_Interface.playerName = gameData.userName;
 
