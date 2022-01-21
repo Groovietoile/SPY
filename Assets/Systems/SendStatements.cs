@@ -110,37 +110,52 @@ public class SendStatements : FSystem {
 
         //get current level name
         currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
-        Debug.Log("currentLevelName = " + currentLevelName);
 
-        Debug.Log(GBL_Interface.playerName + " asks to send statement...");
-
-        //send statement
+        //send statement : player started level on dd/mm/yyyy at hours:minutes
         GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new
         {
             verb = "started",
             objectType = "level",
-            objectName = currentLevelName
-
+            objectName = currentLevelName,
+            activityExtensions = new Dictionary<string, string> {
+                    { "date", DateTime.Now.ToShortDateString() },
+                    { "time", DateTime.Now.ToShortTimeString() }
+                }  
         });
-        
+
     }
 
     public void endLevelSendStatement(GameObject go) {
-        currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
-        Debug.Log("player won level : " + currentLevelName);
-        //if player won, send statement
 
-        if(go.GetComponent<NewEnd>().endType == NewEnd.Win) {
-            //worked actions and concepts 
+        //if player won, send statement : player completed level which contains tags : actions [x,x...] and concepts [x,x...] in minutes:seconds
+        if (go.GetComponent<NewEnd>().endType == NewEnd.Win) {
+
+            currentLevelName = Path.GetFileNameWithoutExtension(gameData.levelList[gameData.levelToLoad.Item1][gameData.levelToLoad.Item2]);
+
+            //dictionary that contains time elapsed in level and tags
+            Dictionary<string, string> extensionsToSave = new Dictionary<string, string>();
+
+            //convert time elapsed in level in seconds (float) to string minutes:seconds
+            int seconds = gameData.timeElapsedInlevel;
+            int minutes = 0;
+            string timeToSave = "";
+
+            minutes = seconds / 60;
+            seconds = seconds % 60;
+            timeToSave = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            //save time elapsed + level tags in dictionary for LRS (worked actions and concepts)
+            extensionsToSave.Add("time", timeToSave);
+            foreach (string key in gameData.tagsDictionary.Keys) {
+                extensionsToSave.Add(key, gameData.tagsDictionary[key]);
+            }
+
+            //send statement
             GameObjectManager.addComponent<ActionPerformedForLRS>(MainLoop.instance.gameObject, new {
                 verb = "completed",
                 objectType = "level",
                 objectName = currentLevelName,
-                activityExtensions = gameData.tagsDictionary
-                /***
-                new Dictionary<string, List<string>> {
-                    { "action", new List<string>{"myContent1", "myContent2"} }
-                }***/
+                activityExtensions = extensionsToSave
             });
 
         }

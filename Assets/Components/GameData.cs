@@ -9,12 +9,17 @@ public class GameData : MonoBehaviour {
 	public int[] levelToLoadScore; //levelToLoadScore[0] = best score (3 stars) ; levelToLoadScore[1] = medium score (2 stars)
 	public List<(string,string)> dialogMessage; //list of (dialogText, imageName)
 	public Dictionary<string, int> actionBlocLimit;
+
+	//playerpref keys
 	public string scoreKey = "score";
+	public string opacityKey = "opacity"; //value = "on"/"off"
+
 	public int totalStep;
 	public int totalActionBloc;
 	public int totalExecute;
 	public int totalCoin;
 	public GameObject actionsHistory; //all actions made in the level, displayed at the end
-	public Dictionary<string, string> tagsDictionary;
+	public Dictionary<string, string> tagsDictionary; //keys = "action"/"concept"
 	public string userName;
+	public int timeElapsedInlevel; //in seconds
 }

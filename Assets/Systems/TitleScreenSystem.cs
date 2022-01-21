@@ -102,8 +102,10 @@ public class TitleScreenSystem : FSystem {
 	// Save user name in GameData
 	public void saveUserName()
 	{
-		string name = inputName.text;
-		gameData.userName = name;
+		if(gameData.userName == "") {
+			gameData.userName = inputName.text;
+		}
+
 	}
 
 	public void userNameChanged() {
@@ -118,7 +120,7 @@ public class TitleScreenSystem : FSystem {
 	public void setOpacity(GameObject bouton) {
 		Color buttonColor;
 
-		if (PlayerPrefs.GetString("opacity").Equals("off")) {
+		if (PlayerPrefs.GetString(gameData.opacityKey).Equals("off")) {
 			buttonColor = bouton.GetComponent<Image>().color;
 			buttonColor.a = 255;
 			bouton.GetComponent<Image>().color = buttonColor;
@@ -141,10 +143,10 @@ public class TitleScreenSystem : FSystem {
 
 	public void changeOpacity() {
 		if (opacityToggle.GetComponent<Toggle>().isOn) {
-			PlayerPrefs.SetString("opacity", "on");
+			PlayerPrefs.SetString(gameData.opacityKey, "on");
 		}
 		else {
-			PlayerPrefs.SetString("opacity", "off");
+			PlayerPrefs.SetString(gameData.opacityKey, "off");
 		}
 		foreach (GameObject bouton in buttons_f) {
 			setOpacity(bouton);

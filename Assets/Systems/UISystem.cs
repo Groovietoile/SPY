@@ -68,7 +68,6 @@ public class UISystem : FSystem {
 			dialogPanel = GameObject.Find("DialogPanel");
 			GameObjectManager.setGameObjectState(dialogPanel.transform.parent.gameObject, false);
 
-			//buttons_f.addEntryCallback(setOpacity);
 			MainLoop.instance.StartCoroutine(delaySetOpacity());
 			requireEndPanel.addEntryCallback(displayEndPanel);
 			displayedEndPanel.addEntryCallback(onDisplayedEndPanel);
@@ -84,9 +83,27 @@ public class UISystem : FSystem {
 
 			lastEditedScript = null;
 
-			loadHistory(); 
+			loadHistory();
+
+			//initialize time elapsed in level to 0 when mainsene is loaded
+			gameData.timeElapsedInlevel = 0;
+
+			//timer starts when mainscene is loaded
+			MainLoop.instance.StartCoroutine(timer());
 		}
     }
+
+	IEnumerator<UnityEngine.WaitForSeconds> timer() {
+		yield return new WaitForSeconds(1);
+		//save elapsed second to timer only if level is not finished and player's script is not running
+		if (newEnd_f.Count == 0 && scriptIsRunning.Count == 0) {
+			gameData.timeElapsedInlevel++;
+			Debug.Log(gameData.timeElapsedInlevel);
+		}
+		
+		//try to save elapsed second each second
+		MainLoop.instance.StartCoroutine(timer());
+	}
 
 	private IEnumerator delaySound(AudioSource sound) {
 		yield return null;
@@ -102,11 +119,9 @@ public class UISystem : FSystem {
 
 	private void setOpacity(GameObject bouton) {
 		Color buttonColor;
-		Debug.Log("set opacity " + bouton.name);
         if (bouton.transform.childCount > 0 && bouton.transform.GetChild(0).GetComponent<TextMeshProUGUI>()) {
 
-			if (PlayerPrefs.GetString("opacity").Equals("off")) {
-				Debug.Log("off");
+			if (PlayerPrefs.GetString(gameData.opacityKey).Equals("off")) {
 				buttonColor = bouton.GetComponent<Image>().color;
 				buttonColor.a = 255;
 				bouton.GetComponent<Image>().color = buttonColor;
@@ -120,7 +135,6 @@ public class UISystem : FSystem {
 			}
 
 			else { //on = default value
-				Debug.Log("on");
 				buttonColor = bouton.GetComponent<Image>().color;
 				buttonColor.a = 129;
 				bouton.GetComponent<Image>().color = buttonColor;
@@ -360,6 +374,7 @@ public class UISystem : FSystem {
 		if(gameData.dialogMessage.Count > 0 && !dialogPanel.transform.parent.gameObject.activeSelf){
 			showDialogPanel();
 		}
+		
 	}
 
 	//Refresh Containers size

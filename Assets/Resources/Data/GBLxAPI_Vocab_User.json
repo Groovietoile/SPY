@@ -13,6 +13,24 @@
             "name": {
                 "en-US": "concept"
             }
+        },
+        "date": {
+            "description": {
+                "en-US": "current date"
+            },
+            "id": "https://w3id.org/xapi/gblxapi/extensions/date",
+            "name": {
+                "en-US": "date"
+            }
+        },
+        "time": {
+            "description": {
+                "en-US": "current time"
+            },
+            "id": "https://w3id.org/xapi/gblxapi/extensions/time",
+            "name": {
+                "en-US": "time"
+            }
         }
     },
     "focus": {},
