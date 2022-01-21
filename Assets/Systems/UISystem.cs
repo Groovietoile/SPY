@@ -311,6 +311,7 @@ public class UISystem : FSystem {
                 break;
             case 2:
 				int score = (10000 / (gameData.totalActionBloc + 1) + 5000 / (gameData.totalStep + 1) + 6000 / (gameData.totalExecute + 1) + 5000 * gameData.totalCoin);
+				//Debug.Log("score = " + score);
                 Transform verticalCanvas = endPanel.transform.Find("VerticalCanvas");
 
 				// With score

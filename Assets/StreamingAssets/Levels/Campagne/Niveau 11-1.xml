@@ -44,5 +44,5 @@
 		<limit actionType="While" limit="1" />
 	</actionBlocLimit>
 	<player posX="4" posZ="1" direction="3" />
-	<score twoStars="7999" threeStars="10500"/>
+	<score twoStars="0" threeStars="7333"/>
 </level>

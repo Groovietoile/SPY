@@ -50,7 +50,7 @@
 	<limit actionType="While" limit="0" />
   </actionBlocLimit>
   <player posX="3" posZ="1" direction="3" />
-  <score twoStars="4499" threeStars="5499"/>
+  <score twoStars="0" threeStars="5714"/>
   <tags>
 	  <tag action="forward"/>
 	  <tag action="turn_right"/>

@@ -43,7 +43,7 @@
       </action>
     </script>   
   </player>
-  <score twoStars="0" threeStars="6888"/>
+  <score twoStars="0" threeStars="10500"/>
   <tags>
 	  <tag action="if"/>
 	  <tag action="forward"/>
