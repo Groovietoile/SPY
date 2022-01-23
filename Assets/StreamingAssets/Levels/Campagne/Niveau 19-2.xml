@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<level>
+  <map>
+    <line>
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="0" />
+      <row value="2" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="3" />
+      <row value="1" />
+      <row value="1" />
+      <row value="3" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+	<line>
+      <row value="1" />
+      <row value="2" />
+      <row value="0" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+      <row value="0" />
+      <row value="0" />
+      <row value="1" />
+    </line>
+    <line>
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+      <row value="1" />
+    </line>
+	</map>
+  <actionBlocLimit>
+    <limit actionType="Forward" limit="3" />
+    <limit actionType="TurnLeft" limit="-1" />
+    <limit actionType="TurnRight" limit="-1" />
+    <limit actionType="Wait" limit="0" />
+    <limit actionType="Activate" limit="0" />
+    <limit actionType="TurnBack" limit="-1" />
+    <limit actionType="If" limit="-1" />
+    <limit actionType="For" limit="-1" />
+	<limit actionType="While" limit="0" />
+  </actionBlocLimit>
+  <door posX="1" posZ="3" slot="0" direction="1" />
+  <player posX="1" posZ="8" direction="2" />
+  <player posX="7" posZ="1" direction="3" />
+  <score twoStars="3736" threeStars="4825"/>
+  <tags>
+	  <tag action="forward"/>
+	  <tag action="if"/>
+	  <tag action="for"/>
+	  <tag action="turn_right"/>
+	  <tag action="turn_left"/>
+	  <tag concept="select_correct_action"/>
+	  <tag concept="nesting"/>
+  </tags>
+</level>

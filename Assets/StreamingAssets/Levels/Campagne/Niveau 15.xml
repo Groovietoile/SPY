@@ -44,7 +44,7 @@
       <row value="-1" />
     </line>
   </map>
-  <dialogs dialog="Attention !&#xA;Ce n'est pas exactement le même niveau." />
+  <dialogs dialog="Attention !&#xA;Ce n'est pas exactement le même niveau que le niveau 14." />
   <actionBlocLimit>
     <limit actionType="Forward" limit="-1" />
     <limit actionType="TurnLeft" limit="-1" />

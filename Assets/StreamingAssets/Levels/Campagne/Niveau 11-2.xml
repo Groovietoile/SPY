@@ -5,39 +5,34 @@
 			<row value="1" />
 			<row value="1" />
 			<row value="1" />
-			<row value="-1" />
 		</line>
 		<line>
 			<row value="1" />
 			<row value="3" />
 			<row value="1" />
-			<row value="-1" />
 		</line>
 		<line>
 			<row value="1" />
 			<row value="0" />
 			<row value="1" />
-			<row value="1" />
 		</line>
 		<line>
 			<row value="1" />
 			<row value="0" />
-			<row value="3" />
 			<row value="1" />
 		</line>
 		<line>
 			<row value="1" />
 			<row value="2" />
-			<row value="2" />
 			<row value="1" />
 		</line>
 		<line>
-			<row value="1" />
 			<row value="1" />
 			<row value="1" />
 			<row value="1" />
 		</line>
 	</map>
+	<dialogs dialog="Une nouvelle action est disponible ! &#xA; Essaye de mettre l'action 'avancer' à l'intérieur." />
 	<actionBlocLimit>
 		<limit actionType="Forward" limit="1" />
 		<limit actionType="TurnLeft" limit="0" />
@@ -50,7 +45,6 @@
 		<limit actionType="While" limit="1" />
 	</actionBlocLimit>
 	<player posX="4" posZ="1" direction="3" />
-	<player posX="4" posZ="2" direction="3" />
 	<score twoStars="0" threeStars="7333"/>
 	<tags>
 		<tag action="forward"/>

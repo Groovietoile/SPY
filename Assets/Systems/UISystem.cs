@@ -98,7 +98,7 @@ public class UISystem : FSystem {
 		//save elapsed second to timer only if level is not finished and player's script is not running
 		if (newEnd_f.Count == 0 && scriptIsRunning.Count == 0) {
 			gameData.timeElapsedInlevel++;
-			Debug.Log(gameData.timeElapsedInlevel);
+			//Debug.Log(gameData.timeElapsedInlevel);
 		}
 		
 		//try to save elapsed second each second
